@@ -17,9 +17,9 @@ import org.springframework.context.annotation.FilterType;
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class) //자동으로 등록하는 빈 중 뺄거를 지정
 )
 public class AutoAppConfig {
-
-    @Bean
-    MemberRepository memberRepository(){
-        return new MemoryMemberRepository();
-    }
+//스프링 빈이 컴포넌트 스캔으로 등록돼있는데 수동으로 또 등록하려다 보니 CoreApplicationTests에서 오류가 남
+//    @Bean
+//    MemberRepository memberRepository(){
+//        return new MemoryMemberRepository();
+//    }
 }
