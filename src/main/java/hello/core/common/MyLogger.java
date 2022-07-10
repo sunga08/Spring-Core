@@ -1,6 +1,7 @@
 package hello.core.common;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -8,7 +9,7 @@ import javax.annotation.PreDestroy;
 import java.util.UUID;
 
 @Component
-@Scope(value = "request") // 이 빈은 http 요청 당 하나씩 생성되고, http 요청이 끝나는 시점에 소멸된다.
+@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS) // 이 빈은 http 요청 당 하나씩 생성되고, http 요청이 끝나는 시점에 소멸된다.
 public class MyLogger {
 
     private String uuid; //빈이 생성되는 시점에 초기화 메서드를 통해 uuid를 생성해서 저장해둔다.
